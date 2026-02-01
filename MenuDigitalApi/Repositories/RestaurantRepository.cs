@@ -48,5 +48,12 @@ namespace MenuDigitalApi.Repositories
                 await _context.SaveChangesAsync();
             }
         }
+
+        public async Task<Restaurant?> GetByEmailAsync(string email)
+        {
+            return await _context.Restaurants
+                .FirstOrDefaultAsync(r => r.Email == email);
+        }
+
     }
 }

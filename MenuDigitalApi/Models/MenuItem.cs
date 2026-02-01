@@ -9,5 +9,9 @@
         public int MenuCategoryId { get; set; }
         public bool IsAvailable { get; set; } = true;
         public MenuCategory MenuCategory { get; set; }=null!;
+        public decimal? HappyHourPrice { get; set; }
+        public TimeSpan? HappyHourStart { get; set; }
+        public TimeSpan? HappyHourEnd { get; set; }
+
     }
 }

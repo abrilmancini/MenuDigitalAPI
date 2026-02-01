@@ -8,5 +8,8 @@
         public decimal Price { get; set; }
         public bool IsAvailable { get; set; }
         public int MenuCategoryId { get; set; }
+        public decimal FinalPrice { get; set; }
+        public bool IsHappyHour { get; set; }
+
     }
 }

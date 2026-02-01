@@ -9,5 +9,6 @@ namespace MenuDigitalApi.Repositories.Interfaces
         Task<Restaurant> AddAsync(Restaurant restaurant);
         Task UpdateAsync(Restaurant restaurant);
         Task DeleteAsync(int id);
+        Task<Restaurant?> GetByEmailAsync(string email);
     }
 }

@@ -1,0 +1,142 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Diego\\Documents\\Austral\\VS29-07-25\\MenuDigitalApi\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{F547C00B-064F-43B3-906B-10793A0A1217}|MenuDigitalApi\\MenuDigitalApi.csproj|c:\\users\\diego\\documents\\austral\\vs29-07-25\\menudigitalapi\\menudigitalapi\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{F547C00B-064F-43B3-906B-10793A0A1217}|MenuDigitalApi\\MenuDigitalApi.csproj|solutionrelative:menudigitalapi\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F547C00B-064F-43B3-906B-10793A0A1217}|MenuDigitalApi\\MenuDigitalApi.csproj|c:\\users\\diego\\documents\\austral\\vs29-07-25\\menudigitalapi\\menudigitalapi\\dtos\\menuitem\\menuitemupdatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F547C00B-064F-43B3-906B-10793A0A1217}|MenuDigitalApi\\MenuDigitalApi.csproj|solutionrelative:menudigitalapi\\dtos\\menuitem\\menuitemupdatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F547C00B-064F-43B3-906B-10793A0A1217}|MenuDigitalApi\\MenuDigitalApi.csproj|c:\\users\\diego\\documents\\austral\\vs29-07-25\\menudigitalapi\\menudigitalapi\\dtos\\menuitem\\menuitemreaddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F547C00B-064F-43B3-906B-10793A0A1217}|MenuDigitalApi\\MenuDigitalApi.csproj|solutionrelative:menudigitalapi\\dtos\\menuitem\\menuitemreaddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F547C00B-064F-43B3-906B-10793A0A1217}|MenuDigitalApi\\MenuDigitalApi.csproj|c:\\users\\diego\\documents\\austral\\vs29-07-25\\menudigitalapi\\menudigitalapi\\dtos\\menuitem\\menuitemcreatedto.cs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F547C00B-064F-43B3-906B-10793A0A1217}|MenuDigitalApi\\MenuDigitalApi.csproj|solutionrelative:menudigitalapi\\dtos\\menuitem\\menuitemcreatedto.cs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F547C00B-064F-43B3-906B-10793A0A1217}|MenuDigitalApi\\MenuDigitalApi.csproj|c:\\users\\diego\\documents\\austral\\vs29-07-25\\menudigitalapi\\menudigitalapi\\models\\menuitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F547C00B-064F-43B3-906B-10793A0A1217}|MenuDigitalApi\\MenuDigitalApi.csproj|solutionrelative:menudigitalapi\\models\\menuitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F547C00B-064F-43B3-906B-10793A0A1217}|MenuDigitalApi\\MenuDigitalApi.csproj|c:\\users\\diego\\documents\\austral\\vs29-07-25\\menudigitalapi\\menudigitalapi\\services\\menuitemservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F547C00B-064F-43B3-906B-10793A0A1217}|MenuDigitalApi\\MenuDigitalApi.csproj|solutionrelative:menudigitalapi\\services\\menuitemservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F547C00B-064F-43B3-906B-10793A0A1217}|MenuDigitalApi\\MenuDigitalApi.csproj|c:\\users\\diego\\documents\\austral\\vs29-07-25\\menudigitalapi\\menudigitalapi\\models\\restaurant.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F547C00B-064F-43B3-906B-10793A0A1217}|MenuDigitalApi\\MenuDigitalApi.csproj|solutionrelative:menudigitalapi\\models\\restaurant.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": ".gitignore",
+              "DocumentMoniker": "C:\\Users\\Diego\\Documents\\Austral\\VS29-07-25\\MenuDigitalApi\\MenuDigitalApi\\.gitignore",
+              "RelativeDocumentMoniker": "MenuDigitalApi\\.gitignore",
+              "ToolTip": "C:\\Users\\Diego\\Documents\\Austral\\VS29-07-25\\MenuDigitalApi\\MenuDigitalApi\\.gitignore",
+              "RelativeToolTip": "MenuDigitalApi\\.gitignore",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2026-02-01T22:18:45.327Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MenuItemUpdateDto.cs",
+              "DocumentMoniker": "C:\\Users\\Diego\\Documents\\Austral\\VS29-07-25\\MenuDigitalApi\\MenuDigitalApi\\DTOs\\MenuItem\\MenuItemUpdateDto.cs",
+              "RelativeDocumentMoniker": "MenuDigitalApi\\DTOs\\MenuItem\\MenuItemUpdateDto.cs",
+              "ToolTip": "C:\\Users\\Diego\\Documents\\Austral\\VS29-07-25\\MenuDigitalApi\\MenuDigitalApi\\DTOs\\MenuItem\\MenuItemUpdateDto.cs",
+              "RelativeToolTip": "MenuDigitalApi\\DTOs\\MenuItem\\MenuItemUpdateDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-01T22:02:31.866Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "MenuItemService.cs",
+              "DocumentMoniker": "C:\\Users\\Diego\\Documents\\Austral\\VS29-07-25\\MenuDigitalApi\\MenuDigitalApi\\Services\\MenuItemService.cs",
+              "RelativeDocumentMoniker": "MenuDigitalApi\\Services\\MenuItemService.cs",
+              "ToolTip": "C:\\Users\\Diego\\Documents\\Austral\\VS29-07-25\\MenuDigitalApi\\MenuDigitalApi\\Services\\MenuItemService.cs",
+              "RelativeToolTip": "MenuDigitalApi\\Services\\MenuItemService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADwAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-01T21:51:37.424Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MenuItemReadDto.cs",
+              "DocumentMoniker": "C:\\Users\\Diego\\Documents\\Austral\\VS29-07-25\\MenuDigitalApi\\MenuDigitalApi\\DTOs\\MenuItem\\MenuItemReadDto.cs",
+              "RelativeDocumentMoniker": "MenuDigitalApi\\DTOs\\MenuItem\\MenuItemReadDto.cs",
+              "ToolTip": "C:\\Users\\Diego\\Documents\\Austral\\VS29-07-25\\MenuDigitalApi\\MenuDigitalApi\\DTOs\\MenuItem\\MenuItemReadDto.cs",
+              "RelativeToolTip": "MenuDigitalApi\\DTOs\\MenuItem\\MenuItemReadDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-01T21:50:52.467Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "MenuItem.cs",
+              "DocumentMoniker": "C:\\Users\\Diego\\Documents\\Austral\\VS29-07-25\\MenuDigitalApi\\MenuDigitalApi\\Models\\MenuItem.cs",
+              "RelativeDocumentMoniker": "MenuDigitalApi\\Models\\MenuItem.cs",
+              "ToolTip": "C:\\Users\\Diego\\Documents\\Austral\\VS29-07-25\\MenuDigitalApi\\MenuDigitalApi\\Models\\MenuItem.cs",
+              "RelativeToolTip": "MenuDigitalApi\\Models\\MenuItem.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-01T21:47:35.517Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Restaurant.cs",
+              "DocumentMoniker": "C:\\Users\\Diego\\Documents\\Austral\\VS29-07-25\\MenuDigitalApi\\MenuDigitalApi\\Models\\Restaurant.cs",
+              "RelativeDocumentMoniker": "MenuDigitalApi\\Models\\Restaurant.cs",
+              "ToolTip": "C:\\Users\\Diego\\Documents\\Austral\\VS29-07-25\\MenuDigitalApi\\MenuDigitalApi\\Models\\Restaurant.cs",
+              "RelativeToolTip": "MenuDigitalApi\\Models\\Restaurant.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAswAkAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-01T21:26:18.545Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "MenuItemCreateDto.cs.cs",
+              "DocumentMoniker": "C:\\Users\\Diego\\Documents\\Austral\\VS29-07-25\\MenuDigitalApi\\MenuDigitalApi\\DTOs\\MenuItem\\MenuItemCreateDto.cs.cs",
+              "RelativeDocumentMoniker": "MenuDigitalApi\\DTOs\\MenuItem\\MenuItemCreateDto.cs.cs",
+              "ToolTip": "C:\\Users\\Diego\\Documents\\Austral\\VS29-07-25\\MenuDigitalApi\\MenuDigitalApi\\DTOs\\MenuItem\\MenuItemCreateDto.cs.cs",
+              "RelativeToolTip": "MenuDigitalApi\\DTOs\\MenuItem\\MenuItemCreateDto.cs.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-01T18:28:59.92Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

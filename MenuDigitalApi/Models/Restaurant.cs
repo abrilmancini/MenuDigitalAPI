@@ -7,7 +7,7 @@ namespace MenuDigitalApi.Models
         public string Name { get; set; }=null!;
         public string Email { get; set; }=null!;
         public string PasswordHash { get; set; } = null!;
-        public int visitCount { get; set; } = 0;
+        
         public ICollection<MenuCategory> Categories { get; set; } = new List<MenuCategory>();
 
     }

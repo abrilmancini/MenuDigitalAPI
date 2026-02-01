@@ -8,6 +8,24 @@ namespace MenuDigitalApi.Services
     public class MenuItemService : IMenuItemService
     {
         private readonly IMenuItemRepository _repository;
+        private decimal GetFinalPrice(MenuItem item)
+        {
+            if (
+                item.HappyHourPrice.HasValue &&
+                item.HappyHourStart.HasValue &&
+                item.HappyHourEnd.HasValue
+            )
+            {
+                var now = DateTime.Now.TimeOfDay;
+
+                if (now >= item.HappyHourStart && now <= item.HappyHourEnd)
+                {
+                    return item.HappyHourPrice.Value;
+                }
+            }
+
+            return item.Price;
+        }
 
         public MenuItemService(IMenuItemRepository repository)
         {
@@ -23,7 +41,7 @@ namespace MenuDigitalApi.Services
                 Id = i.Id,
                 Name = i.Name,
                 Description = i.Description,
-                Price = i.Price,
+                Price = GetFinalPrice(i),
                 IsAvailable = i.IsAvailable,
                 MenuCategoryId = i.MenuCategoryId
             });
@@ -40,7 +58,7 @@ namespace MenuDigitalApi.Services
                 Id = item.Id,
                 Name = item.Name,
                 Description = item.Description,
-                Price = item.Price,
+                Price = GetFinalPrice(item),
                 IsAvailable = item.IsAvailable,
                 MenuCategoryId = item.MenuCategoryId
             };
@@ -70,7 +88,8 @@ namespace MenuDigitalApi.Services
             };
         }
 
-        public async Task UpdateAsync(int id, MenuItemUpdateDto dto)
+        // 🔧 MÉTODO CORREGIDO
+        public async Task<MenuItemReadDto> UpdateAsync(int id, MenuItemUpdateDto dto)
         {
             var item = await _repository.GetByIdAsync(id);
             if (item == null)
@@ -83,11 +102,23 @@ namespace MenuDigitalApi.Services
             item.MenuCategoryId = dto.MenuCategoryId;
 
             await _repository.UpdateAsync(item);
+
+            return new MenuItemReadDto
+            {
+                Id = item.Id,
+                Name = item.Name,
+                Description = item.Description,
+                Price = item.Price,
+                IsAvailable = item.IsAvailable,
+                MenuCategoryId = item.MenuCategoryId
+            };
         }
 
         public async Task DeleteAsync(int id)
         {
             await _repository.DeleteAsync(id);
         }
+       
+
     }
 }

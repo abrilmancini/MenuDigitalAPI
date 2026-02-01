@@ -2,6 +2,8 @@
 using MenuDigitalApi.Models;
 using MenuDigitalApi.Repositories.Interfaces;
 using MenuDigitalApi.Services.Interfaces;
+using BCrypt.Net;
+
 
 namespace MenuDigitalApi.Services
 {
@@ -46,7 +48,8 @@ namespace MenuDigitalApi.Services
             {
                 Name = dto.Name,
                 Email = dto.Email,
-                PasswordHash = dto.PasswordHash
+                PasswordHash = BCrypt.Net.BCrypt.HashPassword(dto.PasswordHash)
+
             };
 
             var created = await _repository.AddAsync(restaurant);
@@ -67,7 +70,6 @@ namespace MenuDigitalApi.Services
 
             restaurant.Name = dto.Name;
             restaurant.Email = dto.Email;
-            restaurant.PasswordHash = dto.PasswordHash;
 
             await _repository.UpdateAsync(restaurant);
         }
@@ -75,6 +77,10 @@ namespace MenuDigitalApi.Services
         public async Task DeleteAsync(int id)
         {
             await _repository.DeleteAsync(id);
+        }
+        public async Task<Restaurant?> GetByEmailAsync(string email)
+        {
+            return await _repository.GetByEmailAsync(email);
         }
     }
 }

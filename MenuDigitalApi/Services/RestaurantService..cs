@@ -4,7 +4,6 @@ using MenuDigitalApi.Repositories.Interfaces;
 using MenuDigitalApi.Services.Interfaces;
 using BCrypt.Net;
 
-
 namespace MenuDigitalApi.Services
 {
     public class RestaurantService : IRestaurantService
@@ -16,31 +15,30 @@ namespace MenuDigitalApi.Services
             _repository = repository;
         }
 
+        /* =======================
+           Reads
+        ======================== */
+
         public async Task<IEnumerable<RestaurantReadDto>> GetAllAsync()
         {
             var restaurants = await _repository.GetAllAsync();
-
-            return restaurants.Select(r => new RestaurantReadDto
-            {
-                Id = r.Id,
-                Name = r.Name,
-                Email = r.Email
-            });
+            return restaurants.Select(ToReadDto);
         }
 
         public async Task<RestaurantReadDto?> GetByIdAsync(int id)
         {
             var restaurant = await _repository.GetByIdAsync(id);
-            if (restaurant == null)
-                return null;
-
-            return new RestaurantReadDto
-            {
-                Id = restaurant.Id,
-                Name = restaurant.Name,
-                Email = restaurant.Email
-            };
+            return restaurant == null ? null : ToReadDto(restaurant);
         }
+
+        public async Task<Restaurant?> GetByEmailAsync(string email)
+        {
+            return await _repository.GetByEmailAsync(email);
+        }
+
+        /* =======================
+           Create
+        ======================== */
 
         public async Task<RestaurantReadDto> CreateAsync(RestaurantCreateDto dto)
         {
@@ -49,18 +47,15 @@ namespace MenuDigitalApi.Services
                 Name = dto.Name,
                 Email = dto.Email,
                 PasswordHash = BCrypt.Net.BCrypt.HashPassword(dto.PasswordHash)
-
             };
 
             var created = await _repository.AddAsync(restaurant);
-
-            return new RestaurantReadDto
-            {
-                Id = created.Id,
-                Name = created.Name,
-                Email = created.Email
-            };
+            return ToReadDto(created);
         }
+
+        /* =======================
+           Update
+        ======================== */
 
         public async Task UpdateAsync(int id, RestaurantUpdateDto dto)
         {
@@ -74,13 +69,37 @@ namespace MenuDigitalApi.Services
             await _repository.UpdateAsync(restaurant);
         }
 
+        public async Task UpdateOwnAsync(int ownerRestaurantId, RestaurantUpdateDto dto)
+        {
+            await UpdateAsync(ownerRestaurantId, dto);
+        }
+
+        /* =======================
+           Delete
+        ======================== */
+
         public async Task DeleteAsync(int id)
         {
             await _repository.DeleteAsync(id);
         }
-        public async Task<Restaurant?> GetByEmailAsync(string email)
+
+        public async Task DeleteOwnAsync(int ownerRestaurantId)
         {
-            return await _repository.GetByEmailAsync(email);
+            await DeleteAsync(ownerRestaurantId);
+        }
+
+        /* =======================
+           Mapper
+        ======================== */
+
+        private static RestaurantReadDto ToReadDto(Restaurant restaurant)
+        {
+            return new RestaurantReadDto
+            {
+                Id = restaurant.Id,
+                Name = restaurant.Name,
+                Email = restaurant.Email
+            };
         }
     }
 }

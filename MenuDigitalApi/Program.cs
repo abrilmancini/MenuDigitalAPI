@@ -3,8 +3,8 @@ using MenuDigitalApi.Repositories;
 using MenuDigitalApi.Repositories.Interfaces;
 using MenuDigitalApi.Services;
 using MenuDigitalApi.Services.Interfaces;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Text;
@@ -13,9 +13,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddControllers();
-builder.Services.AddScoped<IRestaurantService, RestaurantService>();
-builder.Services.AddScoped<IMenuCategoryService, MenuCategoryService>();
-builder.Services.AddScoped<IMenuItemService, MenuItemService>();
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
+
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo
@@ -45,7 +46,7 @@ builder.Services.AddSwaggerGen(c =>
                     Id = "Bearer"
                 }
             },
-            new string[] {}
+             Array.Empty<string>()
         }
     });
 });
@@ -64,22 +65,15 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         };
     });
 
-
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-//Repository DI
 builder.Services.AddScoped<IRestaurantRepository, RestaurantRepository>();
 builder.Services.AddScoped<IMenuCategoryRepository, MenuCategoryRepository>();
 builder.Services.AddScoped<IMenuItemRepository, MenuItemRepository>();
+builder.Services.AddScoped<IRestaurantService, RestaurantService>();
+builder.Services.AddScoped<IMenuCategoryService, MenuCategoryService>();
+builder.Services.AddScoped<IMenuItemService, MenuItemService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
-
-
-
-
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -87,9 +81,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
+app.UseAuthentication();
 app.UseAuthorization();
-
 app.MapControllers();
-
 app.Run();

@@ -11,5 +11,7 @@ namespace MenuDigitalApi.Services.Interfaces
         Task<Restaurant?> GetByEmailAsync(string email);
         Task UpdateAsync(int id, RestaurantUpdateDto dto);
         Task DeleteAsync(int id);
+        Task UpdateOwnAsync(int ownerRestaurantId, RestaurantUpdateDto dto);
+        Task DeleteOwnAsync(int ownerRestaurantId);
     }
 }

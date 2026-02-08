@@ -17,30 +17,28 @@ namespace MenuDigitalApi.Services
         public async Task<IEnumerable<MenuCategoryReadDto>> GetAllAsync()
         {
             var categories = await _repository.GetAllAsync();
-            return categories.Select(c => new MenuCategoryReadDto
-            {
-                Id = c.Id,
-                Name = c.Name,
-                RestaurantId = c.RestaurantId
-            });
+            return categories.Select(ToReadDto);
+        }
+
+        public async Task<IEnumerable<MenuCategoryReadDto>> GetByRestaurantIdAsync(int restaurantId)
+        {
+            var categories = await _repository.GetByRestaurantIdAsync(restaurantId);
+            return categories.Select(ToReadDto);
         }
 
         public async Task<MenuCategoryReadDto?> GetByIdAsync(int id)
         {
             var category = await _repository.GetByIdAsync(id);
-            if (category == null)
-                return null;
-
-            return new MenuCategoryReadDto
-            {
-                Id = category.Id,
-                Name = category.Name,
-                RestaurantId = category.RestaurantId
-            };
+            return category == null ? null : ToReadDto(category);
         }
 
-        public async Task<MenuCategoryReadDto> CreateAsync(MenuCategoryCreateDto dto)
+        public async Task<MenuCategoryReadDto> CreateAsync(MenuCategoryCreateDto dto, int ownerRestaurantId)
         {
+            if (dto.RestaurantId != ownerRestaurantId)
+            {
+                throw new UnauthorizedAccessException("No podés crear categorías para otro restaurante.");
+            }
+
             var category = new MenuCategory
             {
                 Name = dto.Name,
@@ -48,20 +46,20 @@ namespace MenuDigitalApi.Services
             };
 
             var created = await _repository.AddAsync(category);
-
-            return new MenuCategoryReadDto
-            {
-                Id = created.Id,
-                Name = created.Name,
-                RestaurantId = created.RestaurantId
-            };
+            return ToReadDto(created);
         }
-
-        public async Task UpdateAsync(int id, MenuCategoryUpdateDto dto)
+        public async Task UpdateAsync(int id, MenuCategoryUpdateDto dto, int ownerRestaurantId)
         {
-            var category = await _repository.GetByIdAsync(id);
+            var category = await _repository.GetByIdWithRestaurantAsync(id, ownerRestaurantId);
             if (category == null)
-                throw new KeyNotFoundException("Categoría no encontrada");
+            {
+                throw new KeyNotFoundException("Categoría no encontrada para este restaurante");
+            }
+
+            if (dto.RestaurantId != ownerRestaurantId)
+            {
+                throw new UnauthorizedAccessException("No podés mover una categoría a otro restaurante.");
+            }
 
             category.Name = dto.Name;
             category.RestaurantId = dto.RestaurantId;
@@ -69,9 +67,25 @@ namespace MenuDigitalApi.Services
             await _repository.UpdateAsync(category);
         }
 
-        public async Task DeleteAsync(int id)
+        public async Task DeleteAsync(int id, int ownerRestaurantId)
         {
+            var category = await _repository.GetByIdWithRestaurantAsync(id, ownerRestaurantId);
+            if (category == null)
+            {
+                throw new KeyNotFoundException("Categoría no encontrada para este restaurante");
+            }
+
             await _repository.DeleteAsync(id);
+        }
+
+        private static MenuCategoryReadDto ToReadDto(MenuCategory category)
+        {
+            return new MenuCategoryReadDto
+            {
+                Id = category.Id,
+                Name = category.Name,
+                RestaurantId = category.RestaurantId
+            };
         }
     }
 }

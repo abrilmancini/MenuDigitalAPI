@@ -17,9 +17,23 @@ namespace MenuDigitalApi.Repositories
         public async Task<IEnumerable<MenuCategory>> GetAllAsync()
         {
             return await _context.MenuCategories
-                .Include(c => c.Restaurant) // Incluye el restaurante asociado
-                .Include(c => c.Items)      // Incluye los ítems de la categoría
+                .Include(c => c.Restaurant)
+                .Include(c => c.Items)
                 .ToListAsync();
+        }
+
+        public async Task<IEnumerable<MenuCategory>> GetByRestaurantIdAsync(int restaurantId)
+        {
+            return await _context.MenuCategories
+                .Include(c => c.Items)
+                .Where(c => c.RestaurantId == restaurantId)
+                .ToListAsync();
+        }
+        public async Task<MenuCategory?> GetByIdWithRestaurantAsync(int id, int restaurantId)
+        {
+            return await _context.MenuCategories
+                .Include(c => c.Items)
+                .FirstOrDefaultAsync(c => c.Id == id && c.RestaurantId == restaurantId);
         }
 
         public async Task<MenuCategory?> GetByIdAsync(int id)

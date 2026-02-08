@@ -1,4 +1,5 @@
-﻿using MenuDigitalApi.DTOs.Restaurant;
+﻿using MenuDigitalApi.DTOs.Auth;
+using MenuDigitalApi.DTOs.Restaurant;
 using MenuDigitalApi.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
@@ -16,9 +17,9 @@ namespace MenuDigitalApi.Controllers
         }
 
         [HttpPost("login")]
-        public async Task<IActionResult> Login(string email, string password)
+        public async Task<IActionResult> Login([FromBody] RestaurantLoginDto dto)
         {
-            var token = await _authService.LoginAsync(email, password);
+            var token = await _authService.LoginAsync(dto.Email, dto.Password);
 
             if (token == null)
                 return Unauthorized("Email o contraseña incorrectos");

@@ -12,11 +12,14 @@ namespace MenuDigitalApi.DTOs.MenuItem
         [Range(0.01, 10000.00)]
         public decimal Price { get; set; }
         public bool IsAvailable { get; set; }
+        public bool IsFeatured { get; set; }
         [Range(1, int.MaxValue)]
         public int MenuCategoryId { get; set; }
+        [Range(0, 100)]
+        public decimal? DiscountPercentage { get; set; }
         public TimeSpan? HappyHourStart { get; set; }
         public TimeSpan? HappyHourEnd { get; set; }
         public decimal? HappyHourPrice { get; set; }
-
+        public bool IsHappyHourEnabled { get; set; }
     }
 }

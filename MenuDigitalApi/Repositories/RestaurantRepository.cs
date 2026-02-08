@@ -1,6 +1,6 @@
 ﻿using MenuDigitalApi.Data;
 using MenuDigitalApi.Models;
-using MenuDigitalApi.Repositories.Interfaces; 
+using MenuDigitalApi.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 namespace MenuDigitalApi.Repositories
@@ -16,14 +16,18 @@ namespace MenuDigitalApi.Repositories
 
         public async Task<IEnumerable<Restaurant>> GetAllAsync()
         {
-            return await _context.Restaurants.Include(r => r.Categories).ToListAsync();
+            return await _context.Restaurants.ToListAsync();
         }
 
         public async Task<Restaurant?> GetByIdAsync(int id)
         {
+            return await _context.Restaurants.FindAsync(id);
+        }
+
+        public async Task<Restaurant?> GetByEmailAsync(string email)
+        {
             return await _context.Restaurants
-                .Include(r => r.Categories)
-                .FirstOrDefaultAsync(r => r.Id == id);
+                .FirstOrDefaultAsync(r => r.Email == email);
         }
 
         public async Task<Restaurant> AddAsync(Restaurant restaurant)
@@ -41,19 +45,12 @@ namespace MenuDigitalApi.Repositories
 
         public async Task DeleteAsync(int id)
         {
-            var restaurant = await _context.Restaurants.FindAsync(id);
+            var restaurant = await GetByIdAsync(id);
             if (restaurant != null)
             {
                 _context.Restaurants.Remove(restaurant);
                 await _context.SaveChangesAsync();
             }
         }
-
-        public async Task<Restaurant?> GetByEmailAsync(string email)
-        {
-            return await _context.Restaurants
-                .FirstOrDefaultAsync(r => r.Email == email);
-        }
-
     }
 }
